@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+    <a class="navbar-toggler" >Spirit</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/perfil">Perfil <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/notasFinales">Notas Finales</a>
+        </li>
+      </ul>
+      <li class="nav-item">
+        <a  style="color: white">{{saludo}} </a>
+      </li>
+        <button (click)="cerrarSeccion()"  class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
+      </div>
+  </nav>
+  <div  class="table-responsive" >
+    <h1 style="text-align: center;">sdad</h1>
+    <table class="table text-center">
+      <tr >
+          <th>Nombre&nbsp;</th>
+          <td>{{item.nombre}}&nbsp;</td>
+      </tr> 
+      <tr >
+          <th >Apellido&nbsp;</th>
+          <td>{{item.apellido}}&nbsp;</td>
+      </tr>
+      <tr>
+          <th >Domicilio&nbsp;</th>
+          <td>{{item.domicilio}}&nbsp;</td>
+      </tr>
+      <tr >
+          <th>Materias&nbsp;</th>
+          <td ><div *ngFor="let item of materias">{{item}}</div>&nbsp;</td>
+      </tr>
+      <tr >
+          <th >Email&nbsp;</th>
+          <td>{{item.email}}&nbsp;</td>
+      </tr>
+      <tr >
+          <th >Telefono&nbsp;</th>
+          <td >{{item.telefono}}&nbsp;</td>            
+      </tr>
+     
+    </table>
+    <br/>
+    
+</div>

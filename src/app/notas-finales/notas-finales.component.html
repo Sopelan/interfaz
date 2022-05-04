@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark" style="height: 10vh;" >
+    
+  
+    <div class="navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <!--li class="nav-item">
+          <a class="nav-link" href="/perfil">Perfil <span class="sr-only">(current)</span></a>
+        </li-->
+        <li class="nav-item active">
+          <a class="nav-link " href="/notasFinales">Notas Finales</a>
+        </li>
+      </ul>
+      <li class="nav-item">
+        <a  style="color: white">{{saludo}} </a>
+      </li>
+        <button (click)="cerrarSeccion()"  class="btn btn-outline-success my-2 my-sm-0" >Log Out</button>
+      </div>
+  </nav>
+
+<body style="background-color: aqua;height: 100vh;">
+  <br/>
+  <br/>
+  <br/>
+
+  <div class="table-responsive " style="padding-top:10vh;padding-left: 10vw;padding-right: 10vw;padding-bottom: 10vh;">
+    <h2 style="text-align:center;" >Actas</h2>
+    <!--button (click)="elijirMateria(item.data);" *ngFor="let item of actas">{{item.data.nombreMateria}}</button-->   
+    Tomo: <input type="number"  (keyup)="buscadorDinamico()" [(ngModel)]="tomo" ><br/>
+    Folio: <input type="number"   (keyup)="buscadorDinamico()" [(ngModel)]="folio"><br/>
+    Carrera: {{carrera}}<br/>
+    Materia: {{mat}}<br/>
+    Cantidad de inscriptos: {{cantInscriptos}}<br/>
+    Fecha: {{fecha}}<br/>
+      <button (click)="buscadorDinamico()" >buscar</button>
+    
+   <br/>
+    <div >
+      <table class="table text-center "  style="border: red 5px solid;"   >
+        <thead>
+          <tr>
+            <th >Legajo</th>
+            <th >nombre</th>
+            <th >apellido</th>
+            <th >Nota</th>
+            <!--th>Imagen del especialista</th-->
+            <th ></th>
+            <!--th ></th-->
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let item of acta">
+            <td >{{item.id}}</td>
+            <td >{{item.nombre}}</td>
+            <td >{{item.apellido}}</td>
+            <!--td >{{item.nota}}</td>
+            <td ><img src="{{item.data.especialista.imagen1}}"  height="100px"></td-->
+            <td ><input [disabled]="can" type="text" [(ngModel)]="item.nota" id=""></td>
+            <td ><button [disabled]="env" (click)="ausente(item.id);">ausente</button></td>
+            <!--td class="nada"><button *ngIf="item.data.finalizado == true && item.data.Calificar == ''" (click)="calificarAtencion(item)">Calificar Atencion</button></td-->
+          </tr>
+        </tbody>
+        
+  
+    
+        
+      </table>
+      <div *ngIf="con" style="text-align: right;">
+        <button  (click)="confirmar();">confirmar</button>
+      </div>
+      <div *ngIf="can" style="text-align: right;">
+        Cantidad de presentes: {{pre}}<br/>
+        Cantidad de ausentes: {{aus}}<br/>
+        Cantidad de aprobados: {{apro}}<br/>
+        Cantidad de desaprobados: {{desa}}<br/>
+        <button  *ngIf="can"(click)="cancelar();">cancelar</button>
+        <button *ngIf="env"(click)="enviar();">enviar</button>
+      </div>
+      
+    </div>
+  
+  </div>
+</body>

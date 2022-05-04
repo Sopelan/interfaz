@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <h2 class="form-signin-heading" >Please login</h2>
+    <input type="email" class="form-control" name="username" placeholder="email" [(ngModel)]="name" required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password" required=""/>      
+    <!--label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label-->
+    <button (click)="login()"class="btn btn-lg btn-primary btn-block" [disabled]="bool" type="button">Login</button>    
+    <!--button (click)="guardarMensaje()"class="btn btn-lg btn-primary btn-block" type="button">guardarMensaje</button-->      
+    <button (click)="AccesoRapido('evelinabenavidez@gmail.com','123456')"class="btn btn-lg btn-primary btn-block" [disabled]="bool" type="button">AccesoRapido</button>
+    <footer *ngIf="loginError">
+      <div class="alert alert-danger" role="alert">
+        {{loginErrors}}
+        <button (click)="resetLoginError()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+      </div>
+    </footer>
+</div>    
